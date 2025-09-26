@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"> 
+        <div class="calculator">
+            
+            <form>
+                <span style="color: rgb(21, 10, 10);background-image: linear-gradient(to right,rgb(214, 110, 110),rgb(181, 181, 89),rgb(236, 176, 186)); font-size:40px;">CALCULATOR</span>
+                <div class="display">
+                    <input type="text" name="display" placeholder="000">
+                </div>
+                <div>
+                    <input type="button" value="AC" onclick="display.value='' " class="operator calc-btn">
+                    <input type="button" value="DE" onclick="display.value=display.value.toString().slice(0,-1) " class="operator calc-btn">
+                    <input type="button" value="." onclick="display.value+='.' " class="operator calc-btn">
+                    <input type="button" value="/" onclick="display.value+='/' " class="operator calc-btn">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="display.value+='7' " class="calc-btn">
+                    <input type="button" value="8" onclick="display.value+='8' " class="calc-btn">
+                    <input type="button" value="9" onclick="display.value+='9' " class="calc-btn">
+                    <input type="button" value="*" onclick="display.value+='*' " class="operator calc-btn">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="display.value+='4' " class="calc-btn">
+                    <input type="button" value="5" onclick="display.value+='5' " class="calc-btn">
+                    <input type="button" value="6" onclick="display.value+='6' " class="calc-btn">
+                    <input type="button" value="-" onclick="display.value+='-' " class="operator calc-btn">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="display.value+='1' " class="calc-btn">
+                    <input type="button" value="2" onclick="display.value+='2' " class="calc-btn">
+                    <input type="button" value="3" onclick="display.value+='3' " class="calc-btn">
+                    <input type="button" value="+" onclick="display.value+='+' " class="operator calc-btn">
+                </div>
+                <div>
+                    <input type="button" value="00" onclick="display.value+='00' " class="calc-btn">
+                    <input type="button" value="0" onclick="display.value+='0' " class="calc-btn">
+                    <input type="button" value="=" onclick="display.value=eval(display.value)" class="equal operator calc-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const clickSound = new Audio('click.mp3'); 
+        document.querySelectorAll('.calc-btn').forEach(btn =>{
+            btn.addEventListener('click', () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+            });
+        });
+        
+    </script>
+</body>
+</html>
